@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <link rel="stylesheet" href="/static/css/login.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap');
+
+header{
+  font-family: 'Bebas Neue', sans-serif;
+font-family: 'Montserrat', sans-serif;
+}
+</style>
+
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+
+    <link rel="stylesheet" href="/static/css/header.css">
+
+    {% if session['username'] %}
+       
+        <header>
+          <div class="logo">
+            <img src="/static/image/Group 2.png" alt="">
+          </div>
+    
+          <div class="green-text">
+            <p>Управляй своим <br> запасов продуктов <br>эффективно</p>
+          </div>
+          
+          <div class="input-container">
+            <input type="text" placeholder="Ваш текст" onfocus="redirectToPage()">
+          </div>
+    
+          <div class="right-guest">
+            <p>добро пожаловать , {{ session['username'] }}!</p>
+          </div>
+    
+
+    
+        </header>
+
+        <div class="links-pages">
+          <div class="links-pages-a"> 
+            <a href="">Каталог</a>
+            <a href="">Контакты</a>
+            <a href="">Отзывы</a>
+            <a href="">Новинки и акции</a>
+          </div>
+          
+          <a class="basket-link" href="/basket">
+            <img src="https://cdn-icons-png.flaticon.com/512/694/694575.png" alt="">
+          </a>
+          
+
+        </div>
+
+    {% else %}
+    
+      <p>Добро пожаловать гость </p>
+   
+
+      <header>
+        <div class="logo">
+          <img src="/static/image/Group 2.png" alt="">
+        </div>
+  
+        <div class="green-text">
+          <p>Управляй своим <br> запасов продуктов <br>эффективно</p>
+        </div>
+        
+        <div class="input-container">
+          <input type="text" placeholder="Ваш текст" onfocus="redirectToPage()">
+        </div>
+  
+        <div class="right-guest">
+          <a href="/login" class="login-button">войти</a>
+        </div>
+  
+
+  
+      </header>
+
+      <div class="links-pages">
+        <div class="links-pages-a"> 
+          <a href="">Каталог</a>
+          <a href="">Контакты</a>
+          <a href="">Отзывы</a>
+          <a href="">Новинки и акции</a>
+        </div>
+        
+        <a class="basket-link" href="/basket">
+          <img src="https://cdn-icons-png.flaticon.com/512/694/694575.png" alt="">
+        </a>
+        
+
+      </div>
+
+      
+     
+
+
+    </header>
+        
+
+    {% endif %}
+
+
+
+
+
+
+
+    {% endblock %}
+  </head>
+
+
+  <body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    
+    <div id="footer">
+      {% block footer %}
+     
+
+
+
+      {% endblock %}
+    </div>
+
+  </body>
+
+  <script>
+    function redirectToPage() {
+      window.location.href = '/search'; // Замените URL на вашу целевую страницу
+    }
+  </script>
+</html>

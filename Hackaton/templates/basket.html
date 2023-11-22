@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя корзина</title>
+</head>
+<body>
+    <h1>Моя корзина </h1>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.cart-item {
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.item-details {
+    padding: 10px;
+}
+
+.item-details h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.item-details p {
+    margin: 5px 0;
+}
+
+.quantity {
+    font-weight: bold;
+}
+
+.btn-add,
+.btn-remove {
+    background-color: #919b20;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.btn-add:hover,
+.btn-remove:hover {
+    background-color: #41460e;
+}
+.btn-add , .btn-remove{
+    border-radius: 20px;
+}
+
+</style>
+
+{% if products_in_basket %}
+    <ul>
+        {% for product in products_in_basket %}
+            <li class="cart-item" data-product-name="{{ product[0] }}">
+                <img src="{{ product[2] }}" alt="{{ product[0] }}" style="max-width: 100px; max-height: 100px;">
+                <div class="item-details">
+                    <h2>{{ product[0] }}</h2>
+                    <p>Цена: ₽{{ product[1] }}</p>
+                    <p>Количество: <span class="quantity">1</span></p>
+                    <button class="btn-add" onclick="addToCart('{{ product[0] }}')">+</button>
+                    <button class="btn-remove" onclick="removeFromCart('{{ product[0] }}')">-</button>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Your basket is empty.</p>
+{% endif %}
+
+<script>
+    function addToCart(productName) {
+        var productElement = document.querySelector('[data-product-name="' + productName + '"]');
+        var quantityElement = productElement.querySelector('.quantity');
+
+        if (!quantityElement) {
+            // Если элемент span.quantity не существует, создаем его и устанавливаем начальное значение в 1
+            quantityElement = document.createElement('span');
+            quantityElement.className = 'quantity';
+            quantityElement.textContent = 1;
+
+            // Добавляем span.quantity в элемент .item-details
+            productElement.querySelector('.item-details').appendChild(quantityElement);
+        } else {
+            // Увеличиваем значение счетчика
+            quantityElement.textContent = parseInt(quantityElement.textContent) + 1;
+        }
+    }
+
+    function removeFromCart(productName) {
+        var productElement = document.querySelector('[data-product-name="' + productName + '"]');
+        var quantityElement = productElement.querySelector('.quantity');
+
+        if (quantityElement && parseInt(quantityElement.textContent) > 0) {
+            // Уменьшаем значение счетчика
+            quantityElement.textContent = parseInt(quantityElement.textContent) - 1;
+        }
+    }
+</script>
+
+
+
+    
+    <p><a href="/search">Back to Search</a></p>
+</body>
+</html>

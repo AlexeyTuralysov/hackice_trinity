@@ -1,0 +1,63 @@
+.bg-white-login{
+    background-color: rgb(243, 243, 243);
+    width: 300px;
+    height: 500px;
+
+    border-radius: 20px;
+    
+    padding-left: 60px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.bg-white-login h1{
+    margin-left: -15px;
+}
+
+.center-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Занимает 100% высоты окна просмотра */
+}
+
+.btn-login{
+    margin-top: 20px;
+    margin-left: 58px;
+
+
+
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px 15px;
+    background-color: #919b20;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    /* Отступ между полем ввода и кнопкой */
+    cursor: pointer;
+}
+
+.username input{
+     
+    border-radius: 20px;
+    
+    padding: 5px;
+    width: 200px;
+    margin-bottom: 20px;
+    
+    border: #919b20 solid 1px;
+}
+.password input{
+    border: #919b20 solid 1px;
+    border-radius: 20px;
+
+
+    
+    padding: 5px;
+    width: 200px;
+  
+}

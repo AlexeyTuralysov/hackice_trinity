@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (предыдущий код) -->
+</head>
+<body>
+    <style>
+        /* Пример стилей для карточки товара */
+        .product-card {
+            font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            height: 350px;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 26px;
+            color: #26e465; /* цвет цены */
+        }
+        .addtocart{
+            border: none;
+            background-color:#919b20;;
+            border-radius: 50%;
+            padding: 10px;
+            float: right;
+        }
+        .addtocart img{
+            width: 20px;
+            height: 20px;
+        }
+        .result-searh h1{
+            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            color: #919b20;
+            
+            padding-left: 50px;
+        }
+    </style>
+
+<div class="result-searh">
+    <h1 >Результат поиска</h1>
+</div>
+    
+    {% if results %}
+    <ul>
+        {% for result in results %}
+            <li>
+                <div class="product-card">
+                    <div class="product-info">
+                        
+                        {% if result[3] %}
+                            <img class="product-image" src="{{ result[3] }}" alt="{{ result[1] }}" style="max-width: 200px; max-height: 200px;">
+                        {% endif %}
+                        <div class="product-title">{{ result[1] }}</div>
+                        <div class="product-price">Цена: ₽{{ result[2] }}</div>
+                        <form method="post" action="/add_to_basket">
+                            <input type="hidden" name="username" value="{{ current_user }}">
+                            <input type="hidden" name="product_name" value="{{ result[1] }}">
+                            <button type="submit" class="addtocart">
+                                <img src="https://svgsilh.com/svg_v2/304947.svg" alt="Изображение">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <p><a href="/search">вернуться</a></p>
+</body>
+</html>

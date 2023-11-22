@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding-top: 10%;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container_s {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container_sr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    /* Занимает 100% высоты окна просмотра */
+
+
+}
+
+.login-button {
+    padding: 8px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    background-color: #919b20;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.input-container input {
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+
+    padding-left: 40px;
+    /* Размер отступа слева, чтобы вместить изображение */
+    width: 670px;
+    /* Ширина поля ввода */
+    height: 50px;
+    /* Высота поля ввода */
+    border: 2px solid #919b20;
+    /* Граница поля ввода */
+    border-radius: 20px;
+    /* Скругление углов */
+    background-image: url('https://cdn-icons-png.flaticon.com/512/58/58427.png');
+    /* Путь к изображению */
+    background-size: 20px;
+    /* Размер изображения */
+    background-repeat: no-repeat;
+    /* Запрет повторения изображения */
+    background-position: 10px center;
+    /* Позиция изображения внутри поля ввода */
+    box-sizing: border-box;
+    /* Учитываем границу в общей ширине и высоте элемента */
+}
+
+.input-container button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px 15px;
+    background-color: #919b20;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    /* Отступ между полем ввода и кнопкой */
+    cursor: pointer;
+}
+
+.green-text {
+    color: #919b20;
+}
+
+.green-block-text{
+    margin: 20px;
+    display: block;
+    background-color: #919b20;
+    width: 120px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+
+    text-align: center; /* Выравнивание текста по центру */
+    display: flex; /* Используем flexbox для центрирования вертикально и горизонтально */
+    justify-content: center;
+    align-items: center;
+    
+}

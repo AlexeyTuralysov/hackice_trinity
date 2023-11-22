@@ -1,0 +1,76 @@
+body{
+  margin: 0;
+}
+
+header{
+  
+  background-color: white;
+ 
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.links-pages-a{
+  justify-content: center;
+  text-align: center;
+}
+.links-pages{
+  
+  width: 100vw;
+  height: 200px;
+  
+  
+}
+.links-pages a{
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: gray;
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 20px;
+  border: 1px solid #919b20;
+}
+.basket-link{
+  margin-top: -55px;
+  float: right;
+  padding-right: 60px;
+
+}
+.basket-link img{
+  width: 20px;
+  
+}
+.login-button {
+  padding: 8px 15px;
+  border-radius: 15px;
+  text-decoration: none;
+  background-color: #919b20;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.input-container input {
+  
+  padding-left: 40px; /* Размер отступа слева, чтобы вместить изображение */
+  width: 370px; /* Ширина поля ввода */
+  height: 50px; /* Высота поля ввода */
+  border: 2px solid #919b20; /* Граница поля ввода */
+  border-radius: 20px; /* Скругление углов */
+  background-image: url('https://cdn-icons-png.flaticon.com/512/58/58427.png'); /* Путь к изображению */
+  background-size: 20px; /* Размер изображения */
+  background-repeat: no-repeat; /* Запрет повторения изображения */
+  background-position: 10px center; /* Позиция изображения внутри поля ввода */
+  box-sizing: border-box; /* Учитываем границу в общей ширине и высоте элемента */
+}
+.green-text{
+  color: #919b20;
+}
